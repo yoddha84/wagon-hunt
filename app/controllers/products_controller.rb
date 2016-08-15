@@ -9,15 +9,20 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @products = Product.find(params[:id].to_i)
+    @product = Product.find(params[:id].to_i)
   end
 
   def create
-
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to products_path
+    else
+      render :new
+    end
   end
 
   def new
-
+    @product = Product.new
   end
 
   def edit
@@ -30,6 +35,10 @@ class ProductsController < ApplicationController
 
   def destroy
 
+  end
+
+  def product_params
+    params.require(:product).permit(:name, :url)
   end
 
 end

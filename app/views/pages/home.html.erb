@@ -1,7 +1,7 @@
 <div class="container text-center">
   <h1>Wagon Hunt</h1>
   <p>Find best tech products</p>
-  <p>We have <strong><%= 1 + 2 %> new products</strong> on <%= @today %></p>
+  <p>We have <strong><%= @products.count %> new products</strong> on <%= @today %></p>
   <p>
   <%= link_to "All Products", products_path, class: "btn btn-success" %>
 </p>
